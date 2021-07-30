@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSETTA++</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&family=Roboto&display=swap"
+        rel="stylesheet">
+
+    <link href="./Rosetta++.css" rel="stylesheet">
+    <script src="./Rosetta.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="resetSelection()" style="background-color: rgb(213, 253, 251);">
+
+    <div class="myheader" style="background-color: #fffb00;">
+        <img class="Rosetta_logo" src="RISHA_LABS_LOGO.png">
+
+        <span class="Rosetta_text" class="d-flex" style="float: right;">
+            ROSETTA++
+        </span>
+        <!-- <form style="text-align: center;">
+            <span
+                style="color: rgb(247, 243, 243); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style: oblique;"
+                id="time"></span>
+        </form> -->
+    </div>
+
+
+    <!-- <script>
+
+        function timed() {
+            let tim = new Date;
+            document.getElementById('time').innerHTML = tim;
+        }
+        setInterval(timed, 1000);
+    </script> -->
+
+    <br /><br /><br /><br /><br />
+
+    <div style="text-align: center; margin-top: 40px; color: #fff;" class="dropdown">
+        <span class="select">Select Question: &nbsp;</span>
+
+        <select class="btn btn-info dropdown-toggle" type="button" style="margin-top: -1%;" id="CompanySelect" size="1"
+            onchange="makeSubmenu(this.value)">
+            <option value="" disabled selected>Choose Question</option>
+            <option>9 billion names of God the integer</option>
+            <option>99 bottles of beer</option>
+            <option>Almost prime</option>
+            <option>Happy Numbers</option>
+            <option>Kaprekar Numbers</option>
+            <option>LCM</option>
+            <option>Integer sequence</option>
+            <option>Repeat string</option>
+            <option>Root of polynomial</option>
+            <option>Long year</option>
+        </select>
+        <br /><br />
+        <span class="select">Select Language: &nbsp;</span>
+        <select class="btn btn-info dropdown-toggle" type="button" style="margin-top: -1%;" id="BikeSelect" size="1">
+            <option value="" selected="selected">Choose Language</option>
+            <option></option>
+        </select><br /><br />
+        <button class="btn btn-primary" type="primary-button" onclick="removeSelected(), displaySelected()">show
+            selected</button>
+
+        <div style=" text-align: center;">
+            <br /><br /><br />
+
+            <!-- 1 -->
+            <span id="9Gods in Python" style="display: none;">
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST1-tab" data-bs-toggle="tab" data-bs-target="#AST1"
+                            type="button" role="tab" aria-controls="AST1" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE1-tab" data-bs-toggle="tab" data-bs-target="#CODE1"
+                            type="button" role="tab" aria-controls="CODE1" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE1-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE1"
+                            type="button" role="tab" aria-controls="ANALYZE1" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST1" role="tabpanel" aria-labelledby="AST1-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/9 billions names of god AST --- PYTHON.png" height="500px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE1" role="tabpanel" aria-labelledby="CODE1-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            cache = [[1]]<br />
+                            def cumu(n):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for l in range(len(cache), n+1):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = [0]<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for x in range(1,
+                            l+1):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r.append(r[-1]
+                            +
+                            cache[l-x][min(x, l-x)])<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache.append(r)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return cache[n]<br />
+                            def row(n):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = cumu(n)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [r[i+1] - r[i] for i in range(n)]<br />
+                            print "rows:"<br />
+                            for x in range(1, 11): print "%2d:"%x, row(x)<br />
+                            print "\nsums:"<br />
+                            for x in [23, 123, 1234, 12345]: print x, cumu(x)[-1]<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE1" role="tabpanel" aria-labelledby="ANALYZE1-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 1 -->
+
+            <!-- 2 -->
+            <span id="99 bottles of beer in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST2-tab" data-bs-toggle="tab" data-bs-target="#AST2"
+                            type="button" role="tab" aria-controls="AST2" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE2-tab" data-bs-toggle="tab" data-bs-target="#CODE2"
+                            type="button" role="tab" aria-controls="CODE2" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE2-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE2"
+                            type="button" role="tab" aria-controls="ANALYZE2" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST2" role="tabpanel" aria-labelledby="AST2-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/99-bottles-PYTHON1.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/99-bottles-PYTHON2.png" height="550px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE2" role="tabpanel" aria-labelledby="CODE2-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            i = 100<br />
+
+                            while i > 1:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i -= 1<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print(f"{str(i)} Bottles of beer on the wall\n{str(i)}
+                            bottles of
+                            beer\nTake one down, pass it around\n{str(i - 1)} Bottles of beer<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on the wall.\n")<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE2" role="tabpanel" aria-labelledby="ANALYZE2-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 2 -->
+
+
+            <!-- 3 -->
+            <span id="Almost prime in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST3-tab" data-bs-toggle="tab" data-bs-target="#AST3"
+                            type="button" role="tab" aria-controls="AST3" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE3-tab" data-bs-toggle="tab" data-bs-target="#CODE3"
+                            type="button" role="tab" aria-controls="CODE3" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE3-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE3"
+                            type="button" role="tab" aria-controls="ANALYZE3" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST3" role="tabpanel" aria-labelledby="AST3-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/Python_Almost_Prime_1.png" height="650px" width="892px"><br /><br />
+                        <img src="./images/Python_Almost_Prime_2.png" height="1000px" width="892px"><br /><br />
+                        <img src="./images/Python_Almost_Prime_3.png" height="650px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE3" role="tabpanel" aria-labelledby="CODE3-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            from prime_decomposition import decompose<br />
+                            from itertools import islice, count<br />
+                            try:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from functools import reduce<br />
+                            except:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br />
+
+                            def almostprime(n, k=2):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d = decompose(n)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terms = [next(d) for
+                            i in range(k)]<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return
+                            reduce(int.__mul__, terms, 1) == n<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br />
+
+                            if __name__ == '__main__':<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for k in range(1,6):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('%i: %r' % (k,
+                            list(islice((n for n in count() if almostprime(n, k)), 10))))
+
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE3" role="tabpanel" aria-labelledby="ANALYZE3-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 3 -->
+
+            <!-- 4 -->
+            <span id="Happy Numbers in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST4-tab" data-bs-toggle="tab" data-bs-target="#AST4"
+                            type="button" role="tab" aria-controls="AST4" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE4-tab" data-bs-toggle="tab" data-bs-target="#CODE4"
+                            type="button" role="tab" aria-controls="CODE4" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE4-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE4"
+                            type="button" role="tab" aria-controls="ANALYZE4" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST4" role="tabpanel" aria-labelledby="AST4-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/Python_Happy_Numbers1.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/Python_Happy_Numbers1.png" height="500px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE4" role="tabpanel" aria-labelledby="CODE4-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            def happy(n):<br />
+                            past = set()<br />
+                            while n != 1:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = sum(int(i)**2 for i in str(n))<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if n in past:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;past.add(n)<br />
+                            return True<br /><br />
+
+                            [x for x in xrange(500) if happy(x)][:8]<br />
+                            [1, 7, 10, 13, 19, 23, 28, 31]<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE4" role="tabpanel" aria-labelledby="ANALYZE4-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 4 -->
+
+
+            <!-- 5 -->
+            <span id="Kaprekar Numbers in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST5-tab" data-bs-toggle="tab" data-bs-target="#AST5"
+                            type="button" role="tab" aria-controls="AST5" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE5-tab" data-bs-toggle="tab" data-bs-target="#CODE5"
+                            type="button" role="tab" aria-controls="CODE5" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE5-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE5"
+                            type="button" role="tab" aria-controls="ANALYZE5" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST5" role="tabpanel" aria-labelledby="AST5-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/kaprekar-numbers-PYTHON1.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/kaprekar-numbers-PYTHON2.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/kaprekar-numbers-PYTHON3.png" height="550px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE5" role="tabpanel" aria-labelledby="CODE5-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            def k(n):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n2 = str(n**2)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(n2)):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a, b = int(n2[:i] or
+                            0), int(n2[i:])<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if b and a + b ==
+                            n:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return
+                            n<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#return
+                            (n, (n2[:i], n2[i:]))<br /><br />
+
+
+                            [x for x in range(1,10000) if k(x)]<br />
+                            [1, 9, 45, 55, 99, 297, 703, 999, 2223, 2728, 4879, 4950, 5050, 5292, 7272, 7777,
+                            9999]<br />
+                            len([x for x in range(1,1000000) if k(x)])<br />
+
+
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE5" role="tabpanel" aria-labelledby="ANALYZE5-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 5 -->
+
+            <!-- 6 -->
+            <span id="LCM in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST6-tab" data-bs-toggle="tab" data-bs-target="#AST6"
+                            type="button" role="tab" aria-controls="AST6" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE6-tab" data-bs-toggle="tab" data-bs-target="#CODE6"
+                            type="button" role="tab" aria-controls="CODE6" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE6-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE6"
+                            type="button" role="tab" aria-controls="ANALYZE6" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST6" role="tabpanel" aria-labelledby="AST6-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/LCM-PYTHON1.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/LCM-PYTHON2.png" height="550px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE6" role="tabpanel" aria-labelledby="CODE6-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            import fractions<br />
+                            def lcm(a,b): return abs(a * b) / fractions.gcd(a,b) if a and b else 0<br /><br />
+
+                            lcm(12, 18)<br />
+                            36<br />
+                            lcm(-6, 14)<br />
+                            42<br />
+                            assert lcm(0, 2) == lcm(2, 0) == 0<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE6" role="tabpanel" aria-labelledby="ANALYZE6-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 6 -->
+
+            <!-- 7 -->
+            <span id="Integer sequence in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST7-tab" data-bs-toggle="tab" data-bs-target="#AST7"
+                            type="button" role="tab" aria-controls="AST7" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE7-tab" data-bs-toggle="tab" data-bs-target="#CODE7"
+                            type="button" role="tab" aria-controls="CODE7" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE7-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE7"
+                            type="button" role="tab" aria-controls="ANALYZE7" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST7" role="tabpanel" aria-labelledby="AST7-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/Integer-Sequence-PYTHON.png" height="650px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE7" role="tabpanel" aria-labelledby="CODE7-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            i=1<br />
+                            while i:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE7" role="tabpanel" aria-labelledby="ANALYZE7-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 7 -->
+
+
+            <!-- 8 -->
+            <span id="Repeat string in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST8-tab" data-bs-toggle="tab" data-bs-target="#AST8"
+                            type="button" role="tab" aria-controls="AST8" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE8-tab" data-bs-toggle="tab" data-bs-target="#CODE8"
+                            type="button" role="tab" aria-controls="CODE8" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE8-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE8"
+                            type="button" role="tab" aria-controls="ANALYZE8" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST8" role="tabpanel" aria-labelledby="AST8-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/repeat-string-PYTHON.png" height="550px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE8" role="tabpanel" aria-labelledby="CODE8-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            def repeat(s, times):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return s *
+                            times<br /><br />
+
+                            print(repeat("ha", 5))<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE8" role="tabpanel" aria-labelledby="ANALYZE8-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 8 -->
+
+
+            <!-- 9 -->
+            <span id="Root of polynomial in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST9-tab" data-bs-toggle="tab" data-bs-target="#AST9"
+                            type="button" role="tab" aria-controls="AST9" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE9-tab" data-bs-toggle="tab" data-bs-target="#CODE9"
+                            type="button" role="tab" aria-controls="CODE9" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE9-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE9"
+                            type="button" role="tab" aria-controls="ANALYZE9" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST9" role="tabpanel" aria-labelledby="AST9-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/roots-of-polynomial-PYTHON1.png" height="400px" width="892px"><br /><br />
+                        <img src="./images/roots-of-polynomial-PYTHON2.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/roots-of-polynomial-PYTHON3.png" height="500px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE9" role="tabpanel" aria-labelledby="CODE9-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            f = lambda x: x * x * x - 3 * x * x + 2 * x<br /><br />
+
+                            step = 0.001<br />
+                            start = -1<br />
+                            stop = 3<br /><br />
+
+                            sign = f(start) > 0<br /><br />
+
+                            x = start<br />
+                            while x
+                            &lt;= stop:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = f(x)<br /><br />
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if value == 0:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Root found
+                            at", x<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif (value > 0) != sign:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Root found
+                            near", x<br /><br />
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sign = value > 0<br /><br />
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x += step<br />
+
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE9" role="tabpanel" aria-labelledby="ANALYZE9-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 9 -->
+
+            <!-- 10 -->
+            <span id="Long year in Python" style="display: none;">
+
+                <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="AST10-tab" data-bs-toggle="tab" data-bs-target="#AST10"
+                            type="button" role="tab" aria-controls="AST10" aria-selected="true">AST</button>
+                        <button class="nav-link" id="CODE10-tab" data-bs-toggle="tab" data-bs-target="#CODE10"
+                            type="button" role="tab" aria-controls="CODE10" aria-selected="false">Code</button>
+                        <button class="nav-link" id="ANALYZE10-tab" data-bs-toggle="tab" data-bs-target="#ANALYZE10"
+                            type="button" role="tab" aria-controls="ANALYZE10" aria-selected="false">Analyze</button>
+                    </div>
+                </nav>
+                <br /><br />
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="AST10" role="tabpanel" aria-labelledby="AST10-tab">
+                        <span class="Heading">Abstract Syntax tree</span><br /><br />
+                        <img src="./images/Longer-Year-PYTHON1.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/Longer-Year-PYTHON2.png" height="550px" width="892px"><br /><br />
+                        <img src="./images/Longer-Year-PYTHON3.png" height="550px" width="892px">
+                    </div>
+                    <div class="tab-pane fade" id="CODE10" role="tabpanel" aria-labelledby="CODE10-tab">
+                        <div class="Code_heading">Code :</div><br />
+                        <div class="code">
+                            from datetime import date<br /><br />
+
+                            # longYear :: Year Int -> Bool<br />
+                            def longYear(y):<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''True if the ISO year y has 53 weeks.'''<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 52
+                            &lt; date(y, 12, 28).isocalendar()[1]<br /><br />
+
+                            def main():<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''Longer (53 week) years in the range
+                            2000-2100'''<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for year in [<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x for x in
+                            range(2000, 1 + 2100)<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if longYear(x)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]:<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(year)<br /><br />
+
+                            if __name__ == '__main__':<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;main()<br />
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ANALYZE10" role="tabpanel" aria-labelledby="ANALYZE10-tab">
+                        <div class="Code_heading">Analysis :</div><br />
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code Properties</th>
+                                    <th scope="col">Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Lines Of Code</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Number Of Methods</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Number Of Classes</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Cyclomatic Complexity</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Weighted Methods Per Class</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </span>
+            <!-- 10 -->
+
+        </div>
+    </div>
+
+    <br /><br /><br /><br />
+
+</body>
+
+</html>

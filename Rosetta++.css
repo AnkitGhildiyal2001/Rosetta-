@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap');
+
+.Rosetta_text{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+/* body {
+    height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+} */
+
+.Rosetta_logo{ 
+    height: 70px;
+}
+
+.select{
+    font-family: 'Acme', sans-serif;
+    color: hsl(335, 100%, 50%);
+    font-weight: bold; 
+    font-size: xx-large;
+}
+
+.Heading{
+    font-size: xx-large;
+    font-family: 'Kaushan Script', cursive;
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Code_heading{
+    font-size: xx-large;
+    font-family: 'Kaushan Script', cursive;
+    color: black;
+    text-align: left; 
+    margin-left: 75px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Analysis_heading{
+    font-size: xx-large;
+    font-family: 'Kaushan Script', cursive;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.code{
+    font-size: x-large;
+    color: rgb(255, 255, 255); 
+    text-align: left; 
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family: 'Baloo Chettan 2', cursive;
+    background-color: rgb(8, 0, 51);
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+@media (max-width:1000px) and (min-width:700px)
+{
+    .Rosetta_text{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 30px;
+        margin-right: 16px;
+        margin-top: 8px;
+    }
+
+    .Rosetta_logo{ 
+        height: 60px;
+    }
+}
+
+@media (max-width:700px) and (min-width:400px)
+{
+    .Rosetta_text{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 25px;
+        margin-right: 14px;
+        margin-top: 7px;
+    }
+
+    .Rosetta_logo{ 
+        height: 50px;
+    }
+}
+
+@media (max-width:400px)
+{
+    .Rosetta_text{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 22px;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    .Rosetta_logo{ 
+        height: 45px;
+    }
+}
+
+.myheader {
+    position: top;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 10;
+}

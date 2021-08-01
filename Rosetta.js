@@ -19,7 +19,7 @@ var BikesByCompany = {
 
     "Root of polynomial": ["Root of polynomial in Python", "Root of polynomial in JavaScript", "Root of polynomial in C Language", "Root of polynomial in C++", "Root of polynomial in Java"],
     
-    "Long year": ["Long year in Python", "Long year in JavaScript", "Long year in C Language", "Long year in C++", "Long year in Java"],
+    "Long year": ["Long year in Python", "Long year in JavaScript", "Long year in C# Language", "Long year in C++", "Long year in Java"],
 }
 function makeSubmenu(value) {
     if (value.length == 0) document.getElementById("BikeSelect").innerHTML = "<option></option>";
